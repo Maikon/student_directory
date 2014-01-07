@@ -1,18 +1,3 @@
-# put all students into an Array
-=begin
-students = [
-	{:name => "Captain America", :cohort => :january},
-	{:name => "Thor", :cohort => :january},
-	{:name => "Iron Man", :cohort => :january},
-	{:name => "Hulk", :cohort => :january},
-	{:name => "Black Widow", :cohort => :january},
-	{:name => "Ant-Man", :cohort => :january},
-	{:name => "Black Widow", :cohort => :january},
-	{:name => "Black Panther", :cohort => :january},
-	{:name => "Hawkeye", :cohort => :january}
-]
-=end
-
 def input_students
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
