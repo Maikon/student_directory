@@ -1,3 +1,5 @@
+student_count = 9
+
 # first, we print the list of students
 puts "The students of my cohort at Avengers Academy"
 puts "-----------------"
@@ -14,7 +16,4 @@ puts "Hawkeye"
 # it prints a line of text to the standard output, in this case the terminal.
 
 # then, we print the total count.
-print "Overall, we have "
-# print does not add a newline like puts does, hence why it does not wrap the line.
-print 8
-puts " great soon-to-be Avengers!"
+puts "Overall, we have #{student_count} soon-to-be Avenegers."
