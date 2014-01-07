@@ -1,14 +1,14 @@
 # put all students into an Array
 students = [
-	"Captain America",
-	"Thor",
-	"Iron Man",
-	"Hulk",
-	"Black Widow",
-	"Ant-Man",
-	"Black Widow",
-	"Black Panther",
-	"Hawkeye"
+	{:name => "Captain America", :cohort => :january},
+	{:name => "Thor", :cohort => :january},
+	{:name => "Iron Man", :cohort => :january},
+	{:name => "Hulk", :cohort => :january},
+	{:name => "Black Widow", :cohort => :january},
+	{:name => "Ant-Man", :cohort => :january},
+	{:name => "Black Widow", :cohort => :january},
+	{:name => "Black Panther", :cohort => :january},
+	{:name => "Hawkeye", :cohort => :january}
 ]
 
 def print_header
@@ -17,8 +17,8 @@ def print_header
 end
 
 def print(names)
-	names.each do |name|
-		puts name
+	names.each do |student|
+		puts "#{student[:name]} (#{student[:cohort]} cohort)"
 	end
 end
 
