@@ -1,4 +1,4 @@
-# let's put all students into an Array
+# put all students into an Array
 students = [
 	"Captain America",
 	"Thor",
@@ -11,16 +11,23 @@ students = [
 	"Hawkeye"
 ]
 
-# and then print them
-puts "The students of my cohort at Avengers Academy"
-puts "-----------------"
-
-students.each do |name|
-	puts name
+def print_header
+	puts "The students of my cohort at Avengers Academy"
+	puts "-----------------"
 end
 
-# finally, we print the total count.
-puts "Overall, we have #{students.length} soon-to-be Avenegers."
+def print(names)
+	names.each do |name|
+		puts name
+	end
+end
 
-# puts is a method provided by Ruby that takes in this case, a string as an argument.
-# it prints a line of text to the standard output, in this case the terminal.
+def print_footer(names)
+	puts "Overall, we have #{names.length} soon-to-be Avengers!"
+end
+
+
+
+print_header # puts the contents of the print_header method
+print(students) # puts each element of the given argument, in this case the names of the students array
+print_footer(students) # prints the content in the print_footer method using the given argument, in this case the students.length
