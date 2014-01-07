@@ -1,19 +1,26 @@
-student_count = 9
+# let's put all students into an Array
+students = [
+	"Captain America",
+	"Thor",
+	"Iron Man",
+	"Hulk",
+	"Black Widow",
+	"Ant-Man",
+	"Black Widow",
+	"Black Panther",
+	"Hawkeye"
+]
 
-# first, we print the list of students
+# and then print them
 puts "The students of my cohort at Avengers Academy"
 puts "-----------------"
-puts "Captain America"
-puts "Thor"
-puts "Iron Man"
-puts "Hulk"
-puts "Black Widow"
-puts "Ant-Man"
-puts "Black Panther"
-puts "Hawkeye"
+
+students.each do |name|
+	puts name
+end
+
+# finally, we print the total count.
+puts "Overall, we have #{students.length} soon-to-be Avenegers."
 
 # puts is a method provided by Ruby that takes in this case, a string as an argument.
 # it prints a line of text to the standard output, in this case the terminal.
-
-# then, we print the total count.
-puts "Overall, we have #{student_count} soon-to-be Avenegers."
