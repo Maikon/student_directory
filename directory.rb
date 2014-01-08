@@ -8,7 +8,7 @@ def input_students
 	# while the name is not empty, repeat this code
 	while !name.empty? do
 		# add the student hash to the array
-		students << {:name => name, :cohort => :january}
+		students << { name: name, cohort: :january}
 		puts "Now we have #{students.length} students."
 		# get another name from the user
 		name = gets.chomp
