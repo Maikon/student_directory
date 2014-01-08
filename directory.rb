@@ -36,13 +36,14 @@ end
 
 
 def print(names)
-	puts "Would you like to print certain names only? Enter the initial if you do so:"
+	puts "Would you like to print certain names only? Enter the initial if you do so, otherwise press enter twice:"
 	initial = gets.chomp
 	puts "The students of my cohort at Makers Academy"
-	puts @spacing.center(@spacing.length * 2)
+	puts @spacing.center(66, "-")
 	names.each.with_index(1) do |student, i|
 		if student[:name].downcase.start_with?(initial.downcase)
-			puts i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
+			details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
+			puts details.center(66, '-')
 		end
 	end
 end
@@ -50,10 +51,10 @@ end
 
 def print_footer(names)
 	if names.count > 1
-		puts @spacing.center(@spacing.length * 2)
+		puts @spacing.center(66, "-")
 		puts "Overall, we have #{names.length} soon-to-be Super-Coders!"
 	else
-		puts @spacing.center(@spacing.length * 2)
+		puts @spacing.center(66, "-")
 		puts "Overall, we have #{names.length} soon-to-be Super-Coder!"
 	end
 end
