@@ -23,8 +23,8 @@ def print_header
 end
 
 def print(names)
-	names.each do |student|
-		puts "#{student[:name]} (#{student[:cohort]} cohort)"
+	names.each.with_index(1) do |student, i|
+		puts i.to_s + ") #{student[:name]} (#{student[:cohort]} cohort)"
 	end
 end
 
@@ -37,3 +37,4 @@ students = input_students
 print_header # puts the contents of the print_header method
 print(students) # puts each element of the given argument, in this case the names of the students array
 print_footer(students) # prints the content in the print_footer method using the given argument, in this case the students.length
+puts students
