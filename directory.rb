@@ -22,11 +22,28 @@ def print_header
 	puts "-----------------"
 end
 
+=begin
+
 def print(names)
-	names.each.with_index(1) do |student, i|
-		puts i.to_s + ") #{student[:name]} (#{student[:cohort]} cohort)"
+	if names.each { |student| student[:name].start_with?("A") } == true
+		names.each.with_index(1) do |student, i|
+			puts i.to_s + ") #{student[:name]} (#{student[:cohort]} cohort)"
+		end
+	else
+		puts "Nobody I'm afraid."
 	end
 end
+
+=end
+
+def print(names)
+	names.each.with_index(1) do |student, i|
+		if student[:name].start_with?("A", "a")
+			puts i.to_s + ") #{student[:name]} (#{student[:cohort]} cohort)"
+		end
+	end
+end
+
 
 def print_footer(names)
 	puts "Overall, we have #{names.length} soon-to-be Avengers!"
