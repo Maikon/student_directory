@@ -1,19 +1,33 @@
+
+def get_students(students)
+	# get the first name
+	puts "First name?"
+	name = gets.chomp
+	return if name.empty?
+	puts "Last name?"
+	last = gets.chomp
+	# ask user for more info
+	students << { name: name, cohort: :january}
+	if students.count > 1
+		puts students.count.to_s + " Students in total"
+	else
+		puts students.count.to_s + " Student in total"
+	end
+	students
+	end
+
 def input_students
 	puts "Please enter the names of the students"
 	puts "To finish, just hit return twice"
-	# create an empty array
-	students = []
-	# get the first name
-	name = gets.chomp
-	# while the name is not empty, repeat this code
-	while !name.empty? do
-		# add the student hash to the array
-		students << { name: name, cohort: :january}
-		puts "Now we have #{students.length} students."
-		# get another name from the user
-		name = gets.chomp
+	entered_students = []
+	students = get_students(entered_students)
+	puts "You want to add more?(y/n)"
+	answer = gets.chomp
+	until answer.empty? || answer.chars.first != "y"
+		get_students(students) 
+		puts "You want to add more?(y/n)"
+		answer = gets.chomp
 	end
-	# return the array of students
 	students
 end
 
@@ -34,7 +48,11 @@ end
 
 
 def print_footer(names)
-	puts "Overall, we have #{names.length} soon-to-be Avengers!"
+	if names.count > 1
+		puts "Overall, we have #{names.length} soon-to-be Avengers!"
+	else
+		puts "Overall, we have #{names.length} soon-to-be Avenger!"
+	end
 end
 
 
