@@ -5,11 +5,17 @@ def get_students(students)
 	puts "First name?"
 	name = gets.chomp
 	return if name.empty? # goes out if name is empty
+	
 	puts "Last name?"
 	last = gets.chomp
+	while last.empty?
+		puts "Please provide last name:"
+		last = gets.chomp
+	end
+
 	puts "Which cohort?"
 	cohort = gets.chomp.to_sym
-	if cohort.empty?; cohort = "january" end
+	cohort = "january" if cohort.empty?
 	
 	# adds 
 	students << { name: name, last_name: last, cohort: cohort }
