@@ -7,9 +7,11 @@ def get_students(students)
 	return if name.empty? # goes out if name is empty
 	puts "Last name?"
 	last = gets.chomp
+	puts "Which cohort?"
+	cohort = gets.chomp
 	
 	# adds 
-	students << { name: name, last_name: last, cohort: :january}
+	students << { name: name, last_name: last, cohort: cohort}
 	if students.count > 1
 		puts students.count.to_s + " Students in total"
 	else
