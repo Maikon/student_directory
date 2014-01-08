@@ -47,12 +47,16 @@ end
 def print(names)
 	puts "Would you like to print certain names only? Enter the initial if you do so, otherwise press enter twice:"
 	initial = gets.chomp
-	puts "The students of my cohort at Makers Academy"
-	puts @spacing.center(66, "-")
-	names.each.with_index(1) do |student, i|
-		if student[:name].downcase.start_with?(initial.downcase)
-			details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
-			puts details.center(66, '-')
+	puts "Which cohort would you like to see? If all press enter twice:"
+	co_choice = gets.chomp
+	if co_choice == names.each.with_index(1) { |student, i| student[:cohort]}
+		puts "The students of my cohort at Makers Academy"
+		puts @spacing.center(66, "-")
+		names.each.with_index(1) do |student, i|
+			if student[:name].downcase.start_with?(initial.downcase)
+				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
+				puts details.center(66, '-')
+			end
 		end
 	end
 end
