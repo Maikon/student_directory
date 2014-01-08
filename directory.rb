@@ -22,19 +22,7 @@ def print_header
 	puts "-----------------"
 end
 
-=begin
 
-def print(names)
-	if names.each { |student| student[:name].start_with?("A") } == true
-		names.each.with_index(1) do |student, i|
-			puts i.to_s + ") #{student[:name]} (#{student[:cohort]} cohort)"
-		end
-	else
-		puts "Nobody I'm afraid."
-	end
-end
-
-=end
 
 def print(names)
 	names.each.with_index(1) do |student, i|
@@ -54,4 +42,3 @@ students = input_students
 print_header # puts the contents of the print_header method
 print(students) # puts each element of the given argument, in this case the names of the students array
 print_footer(students) # prints the content in the print_footer method using the given argument, in this case the students.length
-puts students
