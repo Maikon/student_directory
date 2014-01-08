@@ -8,10 +8,11 @@ def get_students(students)
 	puts "Last name?"
 	last = gets.chomp
 	puts "Which cohort?"
-	cohort = gets.chomp
+	cohort = gets.chomp.to_sym
+	if cohort.empty?; cohort = "january" end
 	
 	# adds 
-	students << { name: name, last_name: last, cohort: cohort}
+	students << { name: name, last_name: last, cohort: cohort }
 	if students.count > 1
 		puts students.count.to_s + " Students in total"
 	else
