@@ -59,9 +59,7 @@ def print(names)
 				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
 				puts details.center(66, '-')
 			end
-
 		end
-		
 	end
 end
 
