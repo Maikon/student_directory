@@ -59,7 +59,7 @@ end
 
 
 def print(names)
-	puts "Which cohort would you like to see? If all press enter twice:"
+	puts "Which cohort would you like to see? If all press enter:"
 	co_choice = gets.chomp.to_sym
 	#months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
 
