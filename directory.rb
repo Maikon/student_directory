@@ -57,6 +57,8 @@ def print(names)
 
 		if sort_choice.empty?
 			puts "Ok i'll show them all."
+		else
+			puts names.sort { |x, y| x[:cohort] <=> y[:cohort] }
 		end
 	end
 	puts "The students of my cohort at Makers Academy"
