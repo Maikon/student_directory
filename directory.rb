@@ -15,9 +15,11 @@ def get_students(students)
 
 	puts "Which cohort?"
 	cohort = gets.chomp.to_sym
-	cohort = "january" if cohort.empty?
+	while cohort.empty?
+		puts "Please provide a month:"
+		cohort = gets.chomp.to_sym
+	end
 	
-	# adds 
 	students << { name: name, last_name: last, cohort: cohort }
 	if students.count > 1
 		puts students.count.to_s + " Students in total"
@@ -47,6 +49,16 @@ end
 def print(names)
 	puts "Which cohort would you like to see? If all press enter twice:"
 	co_choice = gets.chomp.to_sym
+	#months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
+
+	if co_choice.empty?
+		puts "Would you like to sort the list by alphabetical order perhaps?"
+		sort_choice = gets.chomp
+
+		if sort_choice.empty?
+			puts "Ok i'll show them all."
+		end
+	end
 	puts "The students of my cohort at Makers Academy"
 	puts @spacing.center(66, "-")
 
@@ -58,7 +70,11 @@ def print(names)
 			if student[:cohort] == co_choice
 				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
 				puts details.center(66, '-')
+			else
+				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
+				puts details.center(66, '-')
 			end
+
 		end
 	end
 end
