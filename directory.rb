@@ -45,13 +45,14 @@ end
 
 
 def print(names)
-	#puts "Would you like to print certain names only? Enter the initial if you do so, otherwise press enter:"
-	#initial = gets.chomp
 	puts "Which cohort would you like to see? If all press enter twice:"
 	co_choice = gets.chomp.to_sym
 	puts "The students of my cohort at Makers Academy"
 	puts @spacing.center(66, "-")
 
+	if names == nil
+		puts "You haven't provided any names I'm afraid."
+	else
 		names.each.with_index(1) do |student, i|
 
 			if student[:cohort] == co_choice
@@ -60,20 +61,26 @@ def print(names)
 			end
 
 		end
-end
-
-
-def print_footer(names)
-	if names.count > 1
-		puts @spacing.center(66, "-")
-		puts "Overall, we have #{names.length} soon-to-be Super-Coders!"
-	else
-		puts @spacing.center(66, "-")
-		puts "Overall, we have #{names.length} soon-to-be Super-Coder!"
+		
 	end
 end
 
 
-students = input_students
-print(students) # puts each element of the given argument, in this case the names of the students array
-print_footer(students) # prints the content in the print_footer method using the given argument, in this case the students.length
+def print_footer(names)
+	if names == nil
+		puts "You have to provide some in order to see more info."
+	else
+		if names.count > 1
+			puts @spacing.center(66, "-")
+			puts "Overall, we have #{names.length} soon-to-be Super-Coders!"
+		else
+			puts @spacing.center(66, "-")
+			puts "Overall, we have #{names.length} soon-to-be Super-Coder!"
+		end
+	end
+end
+
+
+students = input_students # assigns the value of the input_students method, to the variable students
+print(students) # calling print method, passing students as an argument.
+print_footer(students) # calling print_footer method, again passing students as an argument.
