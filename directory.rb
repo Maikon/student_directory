@@ -1,4 +1,16 @@
 @spacing = "-----------------"
+cohort = ["January",
+		 "February",
+		 "March",
+		 "April",
+		 "May",
+		 "June",
+		 "July",
+		 "August",
+		 "September",
+		 "October",
+		 "November",
+		 "December"]
 
 def get_students(students)
 	# get the first name
@@ -55,10 +67,10 @@ def print(names)
 		puts "Would you like to sort the list by alphabetical order perhaps?"
 		sort_choice = gets.chomp
 
-		if sort_choice.empty?
+		if sort_choice.eql?(nil) 
 			puts "Ok i'll show them all."
-		else
-			puts names.sort { |x, y| x[:cohort] <=> y[:cohort] }
+		elsif names == nil
+			puts "You haven't added anything."
 		end
 	end
 	puts "The students of my cohort at Makers Academy"
