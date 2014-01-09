@@ -71,8 +71,10 @@ def print(names)
 			puts "Ok i'll show them all."
 		elsif names == nil
 			puts "You haven't added anything."
-		end
-	end
+		#elsif
+		#	puts names.sort {|x, y| x[:cohort] <=> y[:cohort]} # this code sorts the array by cohort and alphabetical order 
+		end 												   # need to fix this so a month corresponds to an integer between 1..12
+	end  													   # and also link it to the code below for it to display the list in that format
 	puts "The students of my cohort at Makers Academy"
 	puts @spacing.center(66, "-")
 
