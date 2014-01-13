@@ -1,12 +1,3 @@
-# Array that holds students
-# list = [
-# 	{:name => "Captain America", :cohort => :january},
-# 	{:name => "Thor Thunder", :cohort => :january},
-# 	{:name => "Hulk Smash", :cohort => :january},
-# 	{:name => "Black Panther", :cohort => :january},
-# 	{:name => "Iron Man", :cohort => :january}
-# ]
-
 
 def input_students
 	puts "Please enter the names of the students"
@@ -36,10 +27,19 @@ def print_header
 	puts "--------------"
 end
 
+# def filter_name(students)
+# 	puts "Would you like to filter names? Type an initial if so:"
+# 	filter_name = gets.chomp
+# 	if filter_name == students[:name]
+# 		puts "Well done."
+# 	end
+# end
+
 def print(students)
-	students.each do |student| # this goes in and grabs the indivual elements, in this case each nested array
-		puts "#{student[:name]} is on the (#{student[:cohort]} cohort)" # from each nested array it gets the first element, index[0] and the second, index[1]
-	end
+
+	students.each.with_index(1) { |student, index| # this goes in and grabs the indivual elements, in this case each nested array
+		puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)" # from each nested array it gets the first element, index[0] and the second, index[1]
+	}
 end
 
 def print_footer(students)
@@ -51,6 +51,8 @@ end
 
 # IMPORTANT TO REMEMBER –> separate data from operation on the data
 list = input_students
+#puts list
+#filter_name(list)
 print_header
 print(list)
 print_footer(list)
