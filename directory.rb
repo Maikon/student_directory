@@ -1,12 +1,33 @@
-# Create instance variables to be used across various methods
+# Array that holds students
+students = [
+	"Captain America",
+	"Thor Thunder",
+	"Hulk Smash",
+	"Black Panther",
+	"Iron Man"
+]
+
+
+def print_header
+	puts "The students of my cohort at Makers Academy"
+	puts "--------------"
+end
+
+def print(names)
+	names.each do |name|
+		puts name
+	end
+end
+
+def print_footer(names)
+	puts "--------------"
+	puts "Overall, we have #{names.length} great students."
+end
 
 
 
+# IMPORTANT TO REMEMBER –> separate data from operation on the data
 
-
-
-# print_header method goes here 
-# should print the message that precedes everything else
-
-
-
+print_header
+print(students)
+print_footer(students)
