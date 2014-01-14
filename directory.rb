@@ -1,18 +1,11 @@
 @spacing = "-----------------"
-cohort = ["January",
-		 "February",
-		 "March",
-		 "April",
-		 "May",
-		 "June",
-		 "July",
-		 "August",
-		 "September",
-		 "October",
-		 "November",
-		 "December"]
 
-def get_students(students)
+@students = []
+@cohort = %w[ January February March April May June July August September October November December]
+
+
+
+def get_students
 	# get the first name
 	puts "First name?"
 	name = gets.chomp
@@ -26,39 +19,44 @@ def get_students(students)
 	end
 
 	puts "Which cohort?"
-	cohort = gets.chomp.to_sym
-	while cohort.empty?
+	@cohort = gets.chomp
+	while @cohort.empty?
 		puts "Please provide a month:"
-		cohort = gets.chomp.to_sym
+		@cohort = gets.chomp
 	end
 	
-	students << { name: name, last_name: last, cohort: cohort }
-	if students.count > 1
-		puts students.count.to_s + " Students in total"
+	@students << { name: name, last_name: last, cohort: @cohort }
+	if @students.count > 1
+		puts @students.count.to_s + " Students in total"
 	else
-		puts students.count.to_s + " Student in total"
+		puts @students.count.to_s + " Student in total"
 	end
-	students
+	@students
 	end
+
+	#puts get_students
 
 def input_students
 	puts "Please enter the names of the students"
-	puts "To finish, just hit return twice"
-	entered_students = []
-	students = get_students(entered_students)
+	puts "To finish, just hit return twice" # these two lines should appear at the top of the program but ONLY once
 	puts "You want to add more?(y/n)"
 	answer = gets.chomp
 	until answer.chars.first != "y"
-		get_students(students) 
+		get_students 
 		puts "You want to add more?(y/n)"
 		answer = gets.chomp
 	end
-	students
+	@students
 end
 
 
 
 def print(names)
+	# @cohort.each do |month|
+	# 	month.each { |num| (1..12) }
+	# end
+	puts @cohort
+
 	puts "Which cohort would you like to see? If all press enter:"
 	co_choice = gets.chomp.to_sym
 	#months = ["jan","feb","mar","apr","may","jun","jul","aug","sep","oct","nov","dec"]
