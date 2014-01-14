@@ -66,15 +66,15 @@ def input_students
 end
 
 def print(names)
-	#puts @students
+	#διputs @students
 	puts "Which cohort would you like to see? Enter a numerical value(1..12):"
-	@co_choice = gets.chomp.to_i
+	@input_cohort = gets.chomp.to_i
 	cohort_format
 	
 	show_cohort = []
 	
 	# while @students.include?(@co_choice)
-	show_cohort << names.select { |cohort| cohort[:cohort] == @co_choice - 1 }
+	show_cohort << names.select { |cohort| cohort[:cohort] == @input_cohort }
 
 	puts show_cohort
 		# names.each.with_index(1) do |student, index| # this goes in and grabs the indivual elements, in this case each nested array
