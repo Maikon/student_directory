@@ -65,28 +65,23 @@ def input_students
 	end
 end
 
-
-
 def print(names)
-	
+	#puts @students
 	puts "Which cohort would you like to see? Enter a numerical value(1..12):"
 	@co_choice = gets.chomp.to_i
 	cohort_format
 	
-	names.each.with_index(1) do |student, index| # this goes in and grabs the indivual elements, in this case each nested array
- 	puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)"
-	end
+	show_cohort = []
 	
+	# while @students.include?(@co_choice)
+	show_cohort << names.select { |cohort| cohort[:cohort] == @co_choice - 1 }
+
+	puts show_cohort
+		# names.each.with_index(1) do |student, index| # this goes in and grabs the indivual elements, in this case each nested array
+	 # 	puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)"
+		# end
 end
 
-
-# def print(students)
-
-
-# 	students.each.with_index(1) { |student, index| # this goes in and grabs the indivual elements, in this case each nested array
-# 		puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)" # from each nested array it gets the first element, index[0] and the second, index[1]
-# 	}
-# end
 
 def print_footer(students)
 	puts "--------------"
