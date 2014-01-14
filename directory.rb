@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 @spacing = "-----------------"
 
 @students = []
@@ -47,12 +47,12 @@ def get_students
 	input_students
 	@students
 	end
-=======
+
 >>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
 
 
 def input_students
-<<<<<<< HEAD
+
 	puts "You want to add more?(y/n)"
 	answer = gets.chomp
 	if answer.chars.first == "y"
@@ -86,7 +86,7 @@ def print(names)
 	# 	#	puts names.sort {|x, y| x[:cohort] <=> y[:cohort]} # this code sorts the array by cohort and alphabetical order 
 	# 	end 												   # need to fix this so a month corresponds to an integer between 1..12
 	# end  													   # and also link it to the code below for it to display the list in that format
-=======
+
 	puts "Please enter the names of the students"
 	puts "To finish, hit return twice"
 	# create empty array
@@ -110,7 +110,7 @@ end
 
 
 def print_header
->>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
+
 	puts "The students of my cohort at Makers Academy"
 	puts "--------------"
 end
@@ -123,7 +123,7 @@ end
 # 	end
 # end
 
-<<<<<<< HEAD
+
 			if @students[@co_choice]
 				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[@cohort[@co_choice]]} cohort)"
 				puts details.center(66, '-')
@@ -131,9 +131,9 @@ end
 			# 	details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
 			# puts details.center(66, '-')
 			end
-=======
+
 def print(students)
->>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
+
 
 	students.each.with_index(1) { |student, index| # this goes in and grabs the indivual elements, in this case each nested array
 		puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)" # from each nested array it gets the first element, index[0] and the second, index[1]
@@ -145,12 +145,12 @@ def print_footer(students)
 	puts "Overall, we have #{students.length} great students."
 end
 
-<<<<<<< HEAD
+
 print_header
 students = get_students 
 print(students) 
 print_footer(students)
-=======
+
 
 
 # IMPORTANT TO REMEMBER –> separate data from operation on the data
@@ -160,4 +160,3 @@ list = input_students
 print_header
 print(list)
 print_footer(list)
->>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
