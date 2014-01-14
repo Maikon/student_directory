@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @spacing = "-----------------"
 
 @students = []
@@ -46,9 +47,12 @@ def get_students
 	input_students
 	@students
 	end
+=======
+>>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
 
 
 def input_students
+<<<<<<< HEAD
 	puts "You want to add more?(y/n)"
 	answer = gets.chomp
 	if answer.chars.first == "y"
@@ -82,14 +86,44 @@ def print(names)
 	# 	#	puts names.sort {|x, y| x[:cohort] <=> y[:cohort]} # this code sorts the array by cohort and alphabetical order 
 	# 	end 												   # need to fix this so a month corresponds to an integer between 1..12
 	# end  													   # and also link it to the code below for it to display the list in that format
+=======
+	puts "Please enter the names of the students"
+	puts "To finish, hit return twice"
+	# create empty array
+	students = []
+	# get first name
+	name = gets.chomp
+	# get cohort
+	cohort = gets.chomp
+	# while the name is not empty, repeat this code
+	until name.empty? do # I found until easier to understand and read as a sentence (until name is empty => repeat this code)
+		# add the student hash to the array
+		students << {:name => name, :cohort => cohort} # this adds a hash for each student in the array students
+		puts "Now we have #{students.length} students"
+		# get another name and cohort from the user
+		name = gets.chomp
+		cohort = gets.chomp
+	end
+	# return the array of students
+	students
+end
+
+
+def print_header
+>>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
 	puts "The students of my cohort at Makers Academy"
-	puts @spacing.center(66, "-")
+	puts "--------------"
+end
 
-	if names == nil
-		puts "You haven't provided any names I'm afraid."
-	else
-		names.each.with_index(1) do |student, i|
+# def filter_name(students)
+# 	puts "Would you like to filter names? Type an initial if so:"
+# 	filter_name = gets.chomp
+# 	if filter_name == students[:name]
+# 		puts "Well done."
+# 	end
+# end
 
+<<<<<<< HEAD
 			if @students[@co_choice]
 				details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[@cohort[@co_choice]]} cohort)"
 				puts details.center(66, '-')
@@ -97,27 +131,33 @@ def print(names)
 			# 	details = i.to_s + ") #{student[:name]} #{student[:last_name]} (#{student[:cohort]} cohort)"
 			# puts details.center(66, '-')
 			end
+=======
+def print(students)
+>>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
 
-		end
-	end
+	students.each.with_index(1) { |student, index| # this goes in and grabs the indivual elements, in this case each nested array
+		puts index.to_s + ") #{student[:name]} is on the (#{student[:cohort]} cohort)" # from each nested array it gets the first element, index[0] and the second, index[1]
+	}
 end
 
-
-def print_footer(names)
-	if names == nil
-		puts "You have to provide some in order to see more info."
-	else
-		if names.count > 1
-			puts @spacing.center(66, "-")
-			puts "Overall, we have #{names.length} soon-to-be Super-Coders!"
-		else
-			puts @spacing.center(66, "-")
-			puts "Overall, we have #{names.length} soon-to-be Super-Coder!"
-		end
-	end
+def print_footer(students)
+	puts "--------------"
+	puts "Overall, we have #{students.length} great students."
 end
 
+<<<<<<< HEAD
 print_header
 students = get_students 
 print(students) 
 print_footer(students)
+=======
+
+
+# IMPORTANT TO REMEMBER –> separate data from operation on the data
+list = input_students
+#puts list
+#filter_name(list)
+print_header
+print(list)
+print_footer(list)
+>>>>>>> 41b0a698ce81fae7f6be37fc1cee405ce3209160
