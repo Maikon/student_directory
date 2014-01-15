@@ -4,19 +4,14 @@ require 'date'
 @spacing = "==============="
 @array_of_students = []
 
-# good practise: methods ending in ? should always return a boolean value (true || false)
-# separate data from actions on the data
-
 def print_header
 	puts "Hello there!"
 	puts @spacing	
 	puts "We have the following options for you:"
 	puts @spacing
 end
+
 def interactive_menu
-	#puts "Would you like to perform another action?"
-	# use a block with yield to start from here again instead from all the way at the top
-	puts "Here's the menu:"
 	puts @spacing
 	puts "1. Input the students."
 	puts "2. Show the students."
@@ -95,6 +90,7 @@ end
 # end
 
 def add_more_details?
+
 	puts "Would you like to add more details? (Yes/No)"
 	yes_or_no?
 end
@@ -111,7 +107,6 @@ def show_students(list)
 	if list.empty?
 		puts "You haven't added anything I'm afraid..."
 		puts "Would you like to add some?"
-		#answer = gets.chomp
 		if yes_or_no? == true
 			input_students 
 		else
@@ -125,7 +120,6 @@ def show_students(list)
 		end
 		see_menu
 	end
-	# interactive_menu
 end
 
 def print_footer(list)
@@ -140,10 +134,10 @@ def see_menu
 	else
 		puts "Adios Amigo!"
 	end
+	exit
 end
 
 
 print_header
 interactive_menu
-# students = input_students
-# show_students(students)
+
