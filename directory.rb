@@ -74,7 +74,7 @@ end
 
 def yes_or_no?
 	print @prompt; answer = gets.chomp.capitalize!
-	while !answer == [/\AYes\Z\ANo\Z/]
+	while !answer.match(/[YN]/)
 		puts "Please provide an answer (Yes/No):"
 		print @prompt; answer = gets.chomp.capitalize!
 	end
@@ -92,7 +92,7 @@ def saving_details
 end
 
 def add_more_details?
-	puts "Would you like to add more details?"
+	puts "Would you like to add more details? (Yes/No)"
 	yes_or_no?
 end
 
