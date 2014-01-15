@@ -16,6 +16,8 @@ end
 def interactive_menu
 	#puts "Would you like to perform another action?"
 	# use a block with yield to start from here again instead from all the way at the top
+	puts "Here's the menu:"
+	puts @spacing
 	puts "1. Input the students."
 	puts "2. Show the students."
 	puts "9. Exit."
@@ -70,7 +72,7 @@ end
 
 def yes_or_no?
 	print @prompt; answer = gets.chomp.capitalize!
-	while !answer.match(/[YN]/)
+	while  answer.nil? || !answer.match(/[YN]/)
 		puts "Please provide an answer (Yes/No):"
 		print @prompt; answer = gets.chomp.capitalize!
 	end
@@ -79,7 +81,9 @@ end
 
 def store_details?(details)
 	puts "Are the following details correct? (Yes/No)"
+	puts @spacing
 	puts "Name: #{details[:name]}, Cohort: #{details[:cohort]}?"
+	puts @spacing
 	yes_or_no?
 end
 
