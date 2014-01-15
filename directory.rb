@@ -111,12 +111,7 @@ def show_students(list)
 		if yes_or_no? == true
 			input_students 
 		else
-			puts "Would you like to see the menu again?"
-			if yes_or_no? == true
-				interactive_menu
-			else
-				puts "Adios Amigo!"
-			end
+			see_menu
 		end
 
 	else
@@ -124,6 +119,7 @@ def show_students(list)
 		list.each.with_index(1) do |student, i| 
 			puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
 		end
+		see_menu
 	end
 	# interactive_menu
 end
@@ -131,6 +127,15 @@ end
 def print_footer(list)
 	puts @spacing
 	puts "Overall, we have #{list.length} students joining in."
+end
+
+def see_menu
+	puts "Would you like to see the menu again?"
+	if yes_or_no? == true
+		interactive_menu
+	else
+		puts "Adios Amigo!"
+	end
 end
 
 
