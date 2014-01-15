@@ -7,10 +7,13 @@ require 'date'
 # good practise: methods ending in ? should always return a boolean value (true || false)
 # separate data from actions on the data
 
-def interactive_menu
+def print_header
 	puts "Hello there!"
 	puts @spacing	
 	puts "We have the following options for you:"
+end
+def interactive_menu
+	#puts "Would you like to perform another action?"
 	# use a block with yield to start from here again instead from all the way at the top
 	puts "1. Input the students."
 	puts "2. Show the students."
@@ -102,13 +105,16 @@ end
 def show_students(list)
 	if list.empty?
 		puts "You haven't added anything I'm afraid..."
+		puts "Would you like to add some?"
+		#answer = gets.chomp
+		input_students if yes_or_no? == true
 	else
 		puts "These are the following students: "
 		list.each.with_index(1) do |student, i| 
 			puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
 		end
 	end
-	interactive_menu
+	# interactive_menu
 end
 
 def print_footer(list)
@@ -117,7 +123,7 @@ def print_footer(list)
 end
 
 
-
+print_header
 interactive_menu
 # students = input_students
 # show_students(students)
