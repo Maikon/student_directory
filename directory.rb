@@ -11,6 +11,7 @@ def print_header
 	puts "Hello there!"
 	puts @spacing	
 	puts "We have the following options for you:"
+	puts @spacing
 end
 def interactive_menu
 	#puts "Would you like to perform another action?"
@@ -107,7 +108,17 @@ def show_students(list)
 		puts "You haven't added anything I'm afraid..."
 		puts "Would you like to add some?"
 		#answer = gets.chomp
-		input_students if yes_or_no? == true
+		if yes_or_no? == true
+			input_students 
+		else
+			puts "Would you like to see the menu again?"
+			if yes_or_no? == true
+				interactive_menu
+			else
+				puts "Adios Amigo!"
+			end
+		end
+
 	else
 		puts "These are the following students: "
 		list.each.with_index(1) do |student, i| 
