@@ -60,25 +60,31 @@ def input_students
 
 	current_details = { name: name, cohort: cohort }
 	
-	if store_details?(current_details) == true
-		array_of_students << current_details
+	array_of_students << current_details if store_details?(current_details) == true
+		
+
+	if add_more_details? == true
+		input_students
 	else
-		puts "Maybe you would like to add some more?"
+		puts "Have a good day!"
 	end
 
 	puts array_of_students
 end
 
-
-def store_details?(details)
-	puts "Are the following details correct? (Yes/No)"
-	puts "Name: #{details[:name]}, Cohort: #{details[:cohort]}?"
+def yes_or_no?
 	print @prompt; answer = gets.chomp.capitalize!
-	while answer.nil?
+	while !answer == [/\AYes\Z\ANo\Z/]
 		puts "Please provide an answer (Yes/No):"
 		print @prompt; answer = gets.chomp.capitalize!
 	end
 	answer.start_with?("No", "N") ? false : true
+end
+
+def store_details?(details)
+	puts "Are the following details correct? (Yes/No)"
+	puts "Name: #{details[:name]}, Cohort: #{details[:cohort]}?"
+	yes_or_no?
 end
 
 def saving_details
@@ -86,7 +92,8 @@ def saving_details
 end
 
 def add_more_details?
-	
+	puts "Would you like to add more details?"
+	yes_or_no?
 end
 
 def sort_by_criteria
