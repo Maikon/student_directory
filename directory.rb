@@ -79,11 +79,6 @@ def yes_or_no?
 	answer.start_with?("No", "N") ? false : true
 end
 
-
-def print_footer(students)
-	puts "--------------"
-	puts "Overall, we have #{students.length} great students."
-=======
 def store_details?(details)
 	puts "Are the following details correct? (Yes/No)"
 	puts @spacing
@@ -152,30 +147,3 @@ print_header
 interactive_menu
 # students = input_students
 # show_students(students)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
