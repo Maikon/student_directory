@@ -1,3 +1,5 @@
+require 'date'
+
 @prompt = "> "
 @spacing = "==============="
 
@@ -48,17 +50,17 @@ def input_students
 		@prompt; name = gets.chomp.capitalize!
 	end
 
-	puts "And which cohort?"
-	@prompt; cohort = gets.chomp.capitalize!
+	puts "And which cohort? Provide numerical form (i.e 1 = Jan)"
+	@prompt; cohort = gets.chomp.to_i
 
-	while cohort.nil?
-		puts "And which cohort?"
-		@prompt; cohort = gets.chomp.capitalize!
+	while cohort.zero?
+		puts "Please provide numerical form (i.e 1 = Jan)"
+		@prompt; cohort = gets.chomp.to_i
 	end
 
 	array_of_students = []
 
-	current_details = { name: name, cohort: cohort }
+	current_details = { name: name, cohort: Date::ABBR_MONTHNAMES[cohort] }
 	
 	array_of_students << current_details if store_details?(current_details) == true
 		
