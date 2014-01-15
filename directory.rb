@@ -2,6 +2,7 @@ require 'date'
 
 @prompt = "> "
 @spacing = "==============="
+@array_of_students = []
 
 # good practise: methods ending in ? should always return a boolean value (true || false)
 # separate data from actions on the data
@@ -10,6 +11,7 @@ def interactive_menu
 	puts "Hello there!"
 	puts @spacing	
 	puts "We have the following options for you:"
+	# use a block with yield to start from here again instead from all the way at the top
 	puts "1. Input the students."
 	puts "2. Show the students."
 	puts "9. Exit."
@@ -22,22 +24,12 @@ def interactive_menu
 	when "1"
 		input_students
 	when "2"
-		show_students
+		show_students(@array_of_students)
 	when "9"
 		exit
 	end
 
 end
-
-# def input_request
-# 	puts "Please input students:"
-# 	answer = gets.chomp.capitalize!
-# 	if !answer.nil?
-# 		submit_students
-# 	else
-# 		exit
-# 	end
-# end
 
 def input_students
 	puts "Please input students:"
@@ -58,20 +50,18 @@ def input_students
 		@prompt; cohort = gets.chomp.to_i
 	end
 
-	array_of_students = []
+	# array_of_students = []
 
 	current_details = { name: name, cohort: Date::ABBR_MONTHNAMES[cohort] }
 	
-	array_of_students << current_details if store_details?(current_details) == true
+	@array_of_students << current_details if store_details?(current_details) == true
 		
 
-	if add_more_details? == true
-		input_students
-	else
-		puts "Have a good day!"
-	end
+	input_students if add_more_details? == true
 
-	puts array_of_students
+	@array_of_students
+
+	interactive_menu
 end
 
 def yes_or_no?
@@ -89,23 +79,75 @@ def store_details?(details)
 	yes_or_no?
 end
 
-def saving_details
-	
-end
+# def print(students)
+# 	puts "These are the following students: "
+# 	# students.each.with_index(1) do |student, i|
+# 	# 	puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
+# 	# end
+# end
 
 def add_more_details?
 	puts "Would you like to add more details? (Yes/No)"
 	yes_or_no?
 end
 
-def sort_by_criteria
+def sort_by_cohort
 	
 end
 
-def show_students
+def sort_by_name
 	
+end
+
+def show_students(list)
+	if list.empty?
+		puts "You haven't added anything I'm afraid..."
+	else
+		puts "These are the following students: "
+		list.each.with_index(1) do |student, i| 
+			puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
+		end
+	end
+	interactive_menu
+end
+
+def print_footer(list)
+	puts @spacing
+	puts "Overall, we have #{list.length} students joining in."
 end
 
 
 
 interactive_menu
+# students = input_students
+# show_students(students)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
