@@ -28,6 +28,7 @@ def interactive_menu
 	when "2"
 		show_students(@array_of_students)
 	when "9"
+		puts "Adios amigo!"
 		exit
 	end
 
@@ -63,8 +64,6 @@ def input_students
 	@array_of_students
 
 	see_menu
-
-	# interactive_menu
 end
 
 
