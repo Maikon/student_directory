@@ -36,11 +36,11 @@ def input_students
 	puts "Please input students:"
 
 	puts "Name of student?"
-	@prompt; name = gets.chomp.capitalize!
+	@prompt; name = gets.chomp
 	
 	while name.nil?
 		puts "Name of student?"
-		@prompt; name = gets.chomp.capitalize!
+		@prompt; name = gets.chomp
 	end
 
 	puts "And which cohort? Provide numerical form (i.e 1 = Jan)"
