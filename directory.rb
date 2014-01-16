@@ -20,18 +20,24 @@ def interactive_menu
 	puts @spacing
 	puts "Please choose one:"
 
-	print @prompt; answer = gets.chomp
-
-	case answer
-	when "1"
-		input_students
-	when "2"
-		show_students(@array_of_students)
-	when "9"
-		puts "Adios amigo!"
-		exit
+	print @prompt; answer = gets.chomp.to_i
+	
+	while answer == 0
+		puts "Please choose from 1, 2 and 9."
+	print @prompt; answer = gets.chomp.to_i
+	puts @spacing
 	end
 
+	case answer
+	when 1
+		input_students
+	when 2
+		show_students(@array_of_students)
+	when 9
+		puts "Adios amigo!"
+		# exit
+	end
+	
 end
 
 
@@ -91,6 +97,11 @@ def add_more_details?
 	yes_or_no?
 end
 
+def sort_list
+	puts "Would you like to sort the list by cohort?"
+	yes_or_no?
+end
+
 def sort_by_cohort
 	
 end
@@ -99,18 +110,23 @@ def sort_by_name
 	
 end
 
+def empty_student_list
+	puts "You haven't added anything I'm afraid..."
+	puts "Would you like to add some?(Yes/No)"
+	if yes_or_no? == true
+		input_students 
+	else
+		sort_list
+	end
+	see_menu
+end
+
 
 def show_students(list)
 	if list.empty?
-		puts "You haven't added anything I'm afraid..."
-		puts "Would you like to add some?"
-		if yes_or_no? == true
-			input_students 
-		else
-			see_menu
-		end
-
+		empty_student_list
 	else
+		sort_list
 		puts @spacing
 		puts "These are the following students: "
 		list.each.with_index(1) do |student, i| 
