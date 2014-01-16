@@ -11,6 +11,7 @@ def print_header
 	puts @spacing
 end
 
+
 def interactive_menu
 	puts @spacing
 	puts "1. Input the students."
@@ -32,6 +33,7 @@ def interactive_menu
 
 end
 
+
 def input_students
 	puts "Please input students:"
 
@@ -51,8 +53,6 @@ def input_students
 		@prompt; cohort = gets.chomp.to_i
 	end
 
-	# array_of_students = []
-
 	current_details = { name: name, cohort: Date::ABBR_MONTHNAMES[cohort] }
 	
 	@array_of_students << current_details if store_details?(current_details) == true
@@ -62,8 +62,11 @@ def input_students
 
 	@array_of_students
 
-	interactive_menu
+	see_menu
+
+	# interactive_menu
 end
+
 
 def yes_or_no?
 	print @prompt; answer = gets.chomp.capitalize!
@@ -74,6 +77,7 @@ def yes_or_no?
 	answer.start_with?("No", "N") ? false : true
 end
 
+
 def store_details?(details)
 	puts "Are the following details correct? (Yes/No)"
 	puts @spacing
@@ -82,15 +86,8 @@ def store_details?(details)
 	yes_or_no?
 end
 
-# def print(students)
-# 	puts "These are the following students: "
-# 	# students.each.with_index(1) do |student, i|
-# 	# 	puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
-# 	# end
-# end
 
 def add_more_details?
-
 	puts "Would you like to add more details? (Yes/No)"
 	yes_or_no?
 end
@@ -103,6 +100,7 @@ def sort_by_name
 	
 end
 
+
 def show_students(list)
 	if list.empty?
 		puts "You haven't added anything I'm afraid..."
@@ -114,18 +112,22 @@ def show_students(list)
 		end
 
 	else
+		puts @spacing
 		puts "These are the following students: "
 		list.each.with_index(1) do |student, i| 
 			puts i.to_s + ") #{student[:name]}, (#{student[:cohort]} cohort)"
 		end
+		puts @spacing
 		see_menu
 	end
 end
+
 
 def print_footer(list)
 	puts @spacing
 	puts "Overall, we have #{list.length} students joining in."
 end
+
 
 def see_menu
 	puts "Would you like to see the menu again?"
