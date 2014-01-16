@@ -116,9 +116,8 @@ def empty_student_list
 	if yes_or_no? == true
 		input_students 
 	else
-		sort_list
+		see_menu
 	end
-	see_menu
 end
 
 
