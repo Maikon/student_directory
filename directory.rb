@@ -100,19 +100,32 @@ end
 def sort_list
 	puts "Would you like to sort the list?"
 	if yes_or_no? == true
-		puts "Sort by cohort or name?" 
+		puts "Sort by cohort or name?"
+		print @prompt; answer = gets.chomp
+					   
+
+		while answer.nil? || !answer.match(/[CcNn]/)
+			puts "Please choose between Cohort and Name:"
+			print @prompt; answer = gets.chomp				   
+		end
+
+		if answer.match(/[Cc]/)
+			sort_by_cohort
+		else
+			sort_by_name
+		end
 	else
 		
 	end
 
 end
 
-def sort_by_cohort
-	
+def sort_by_cohort(list)
+	puts "Choose a cohort you would like to see:"
 end
 
 def sort_by_name
-	
+	puts "Choose an initial for names you wish to see:"
 end
 
 def empty_student_list
