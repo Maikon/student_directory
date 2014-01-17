@@ -98,8 +98,13 @@ def add_more_details?
 end
 
 def sort_list
-	puts "Would you like to sort the list by cohort?"
-	yes_or_no?
+	puts "Would you like to sort the list?"
+	if yes_or_no? == true
+		puts "Sort by cohort or name?" 
+	else
+		
+	end
+
 end
 
 def sort_by_cohort
@@ -156,3 +161,4 @@ end
 
 print_header
 interactive_menu
+
