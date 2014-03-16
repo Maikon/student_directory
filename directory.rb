@@ -70,14 +70,14 @@ end
 def yes_or_no?
   print @prompt; answer = gets.chomp.capitalize!
   while  answer.nil? || !answer.match(/[YN]/)
-    puts 'Please provide an answer (Yes/No):'
+    puts 'Please provide an answer (yes/no):'
     print @prompt; answer = gets.chomp.capitalize!
   end
   answer.start_with?('No', "N") ? false : true
 end
 
 def store_details?(details)
-  puts 'Are the following details correct? (Yes/No)'
+  puts 'Are the following details correct? (yes/no)'
   puts @spacing
   puts "Name: #{details[:name]}, Cohort: #{details[:cohort]}?"
   puts @spacing
@@ -85,12 +85,12 @@ def store_details?(details)
 end
 
 def add_more_details?
-  puts 'Would you like to add more details? (Yes/No)'
+  puts 'Would you like to add more details? (yes/no)'
   yes_or_no?
 end
 
 def sort_list
-  puts 'Would you like to sort the list? (Yes/No)'
+  puts 'Would you like to sort the list? (yes/no)'
   if yes_or_no? == true
     puts 'Sort by cohort or name?'
     print @prompt; answer = gets.chomp
@@ -118,7 +118,7 @@ end
 
 def empty_student_list
   puts "You haven't added anything I'm afraid..."
-  puts 'Would you like to add some?(Yes/No)'
+  puts 'Would you like to add some?(yes/no)'
   if yes_or_no? == true
     input_students
   else
@@ -147,7 +147,7 @@ def print_footer(list)
 end
 
 def see_menu
-  puts 'Would you like to see the menu again?(Yes/No)'
+  puts 'Would you like to see the menu again?(yes/no)'
   if yes_or_no? == true
     interactive_menu
   else
